@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="NFC_reader.addcard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NFC_reader"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="298,114,0,0" TextWrapping="Wrap" Text="姓名" VerticalAlignment="Top" FontSize="50"/>
+        <TextBlock x:Name="data_name" HorizontalAlignment="Left" Margin="233,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.17,2.076"/>
+        <TextBox x:Name="username" HorizontalAlignment="Left" Margin="417,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="50" Width="394" KeyDown="username_KeyDown"/>
+        <Button x:Name="add_butten" Content="加入" Margin="508,597,0,0" VerticalAlignment="Top" FontSize="30" Click="add_butten_Click"/>
+        <TextBlock x:Name="message" HorizontalAlignment="Left" Margin="300,722,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24"/>
+        <TextBlock x:Name="grade" HorizontalAlignment="Left" Margin="198,235,0,0" TextWrapping="Wrap" Text="班級座號" VerticalAlignment="Top" FontSize="50"/>
+        <TextBox x:Name="usergrade" HorizontalAlignment="Left" Margin="417,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="50" Width="394" KeyDown="usergrade_KeyDown"/>
+        <TextBlock x:Name="id" HorizontalAlignment="Left" Margin="277,359,0,0" TextWrapping="Wrap" FontSize="50" Text="學號*" VerticalAlignment="Top" KeyDown="id_KeyDown"/>
+        <TextBox x:Name="userid" HorizontalAlignment="Left" Margin="417,352,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="50" Width="394" KeyDown="usergrade_KeyDown"/>
+        <Button x:Name="clean_butten" Content="清除" Margin="616,597,0,0" VerticalAlignment="Top" FontSize="30" Click="clean_butten_Click"/>
+
+    </Grid>
+</Page>
