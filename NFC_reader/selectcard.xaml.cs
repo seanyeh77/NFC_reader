@@ -80,35 +80,42 @@ namespace NFC_reader
             {
                 if(UID != "")
                 {
-                    state.Text = "處理中"; 
+                    message.Text = "處理中"; 
                     UserLog userLog = new UserLog()
                     {
                         UID = UID,
                         time = DateTime.Now
                     };
                     String err = await httpclientlog.Post(userLog);
-                    switch (err)
+                    switch (err.Replace("\"",""))
                     {
-                        case "\"UID\"":
-                            state.Text = "未找到此卡";
+                        case "UID":
+                            message.Text = "未找到此卡";
+                            break;
+                        case "ID":
+                            message.Text = "未找到此人";
+                            break;
+                        case "freeze":
+                            message.Text = "卡片無法使用，請聯絡管理員";
                             break;
                         default:
                             userdata = await httpclientusercard.Get(UID);
-                            ID.Text = userdata.ID.ToString();
+                            ID.Text = userdata.ID.ToString("D6");
                             name.Text = userdata.Name;
                             time.Text = userLog.time.ToString();
-                            state.Text = "成功";
+                            state.Text = userdata.state?"簽到":"簽退";
+                            message.Text = "成功";
                             break;
                     }
                 }
                 else
                 {
-                    state.Text = "未讀取到卡片";
+                    message.Text = "未讀取到卡片";
                 }
             }
             catch (Exception ex)
             {
-                state.Text = ex.Message;
+                message.Text = ex.Message;
             }
         }
         public void notcard()
@@ -116,7 +123,7 @@ namespace NFC_reader
             ID.Text = "靠卡失敗";
             userName = "靠卡失敗";
             userTime = "靠卡失敗";
-            state.Text = "靠卡失敗";
+            message.Text = "靠卡失敗";
         }
 
         internal void userlog(byte[] msg)

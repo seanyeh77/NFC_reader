@@ -38,13 +38,21 @@ namespace NFC_reader
                 try
                 {
                     userdata = await httpclientusercard.Get(UID);
-                    if (userdata == null)
+                    if(userdata == null)
                     {
-                        message.Text = "請前往加入卡片";
-                        return;
+                        switch (httpclientusercard.err.Replace("\"", ""))
+                        {
+                            case "UID":
+                                message.Text = "未找到此卡";
+                                break;
+                        }
                     }
-                    delusername.Text = userdata.ID.ToString();
-                    message.Text = "搜尋成功";
+                    else
+                    {
+                        deluserID.Text = userdata.ID.ToString("D6");
+                        message.Text = "查詢成功";
+                    }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -53,23 +61,23 @@ namespace NFC_reader
             }
             else
             {
-                delusername.Text = "";
+                deluserID.Text = "";
                 message.Text = "請刷卡";
             }
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (delusername.Text != "")
+            if (deluserID.Text != "")
             {
                 string err = await httpclientusercard.delete(MainPage.UID);
-                switch (err)
+                switch (err.Replace("\"", ""))
                 {
-                    case "\"null\"":
-                        message.Text = "沒有找到這張卡的資料";
+                    case "UID":
+                        message.Text = "未找到此卡";
                         break;
-                    default:
-                        message.Text = "成功刪除";
+                    case "scuess":
+                        message.Text = "刪除卡片成功";
                         break;
                 }
             }

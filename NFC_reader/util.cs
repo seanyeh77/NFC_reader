@@ -25,7 +25,7 @@ namespace NFC_reader
             }
             else if (page == "addcard")
             {
-                addcard.Current.userlog(msg);
+                addcard.Current.showdata(msg);
             }
         }
         public static void notcard(string msg,string page)

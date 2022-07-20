@@ -39,19 +39,28 @@ namespace NFC_reader
                 if (UID != "")
                 {
                     UserData userdata = await httpclientusercard.Get(UID);
+                    string err = httpclientusercard.err;
                     if(userdata == null)
                     {
-                        message.Text = "沒有此卡的資料";
-                    }
-                    else if(userdata.freeze == true)
-                    {
-                        message.Text = "沒有此卡的資料";
+                        switch (err.Replace("\"", ""))
+                        {
+                            case "UID":
+                                message.Text = "未找到此卡";
+                                break;
+                            case "ID":
+                                message.Text = "未找到此人";
+                                break;
+                            case "freeze":
+                                message.Text = "卡片無法使用，請聯絡管理員";
+                                break;
+                        }
                     }
                     else
                     {
-                        ID.Text = userdata.ID.ToString();
+                        ID.Text = userdata.ID.ToString("D6");
                         name.Text = userdata.Name;
                         grade.Text = userdata.grade.ToString();
+                        state.Text = userdata.state.ToString();
                         message.Text = "成功";
                     }
                 }
@@ -67,8 +76,6 @@ namespace NFC_reader
         }
         public void notcard()
         {
-            name.Text = "";
-            grade.Text = "";
             message.Text = "請重新刷卡";
         }
     }

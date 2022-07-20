@@ -18,5 +18,7 @@ namespace NFC_reader
         public string Name { get; set; }
         [Required]
         public bool freeze { get; set; } = false;
+        [Required]
+        public bool state { get; set; } = false;
     }
 }

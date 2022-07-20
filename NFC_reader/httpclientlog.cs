@@ -13,8 +13,8 @@ namespace NFC_reader
 {
     public class httpclientlog
     {
-        public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://localhost:7021/") };
-        //public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://userdatawebapi20220502202651.azurewebsites.net/") };
+        //public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://localhost:7021/") };
+        public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://userdatawebapi20220502202651.azurewebsites.net/") };
         public static List<UserLog> result = new List<UserLog>();
         public static async Task<List<UserLog>> Get()
         {
@@ -46,8 +46,7 @@ namespace NFC_reader
 
             if (!response.IsSuccessStatusCode)
             {
-                string err = await response.Content.ReadAsStringAsync();
-                return err;
+                return await response.Content.ReadAsStringAsync();
             }
             else
             {

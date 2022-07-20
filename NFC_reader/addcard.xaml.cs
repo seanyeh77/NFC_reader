@@ -40,62 +40,37 @@ namespace NFC_reader
         }
         private async void add_butten_Click(object sender, RoutedEventArgs e)
         {
-            bool userDatabool = userid.Text != "" && usergrade.Text != "" && username.Text != "";
-            bool userCardbool = userid.Text != "" && MainPage.UID.ToString() != "";
             message.Text = "處理中";
+            bool userCardbool = userid.Text != "" && MainPage.UID.ToString() != "";
             try
             {
-                UserData userData = null;
                 UserCard userCard = new UserCard{};
-                if (userDatabool) 
+                if (!userCardbool)
                 {
-                    userData = new UserData
-                    {
-                        ID = Convert.ToInt32(userid.Text),
-                        Name = username.Text,
-                        grade = Convert.ToInt32(usergrade.Text)
-                    };
+                    message.Text = "資料讀取失敗";
+                    return;
                 }
-                if (userCardbool)
+                userCard = new UserCard
                 {
-                    userCard = new UserCard
-                    {
-                        UID = MainPage.UID.ToString(),
-                        ID = Convert.ToInt32(userid.Text)
-                    };
+                    UID = MainPage.UID.ToString(),
+                    ID = Convert.ToInt32(userid.Text)
+                };
+                String err = await httpclientusercard.Post(userCard);
+                if (err == "\"UID\"")
+                {
+                    message.Text = "已有此卡的資料";
                 }
-                String[] err = await httpclientdata.Post(userData, userCard);
-                if (err[0] == "true" && err[1] == "false")
+                else if(err == "\"ID\"")
                 {
-                    message.Text = "新增個人資料成功";
+                    message.Text = "尚未加入個人資料";
                 }
-                else if (err[0] == "false" && err[1] == "false")
+                else if(err == "\"freeze\"")
                 {
-                    message.Text = "欄位輸入錯誤";
+                    message.Text = "已有此卡的資料，但已被凍結";
                 }
-                else if (err[0] == "true" && err[1] == "false")
+                else if( err == "scuess")
                 {
-                    message.Text = "新增個人資料、卡片成功";
-                }
-                else if (err[0] == "\"isID\"" && err[1] == "\"UID\"")
-                {
-                    message.Text = "此個人資料、卡已存在";
-                }
-                else if (err[0] == "\"isID\"" && err[1] == "false")
-                {
-                    message.Text = "此個人資料已存在";
-                }
-                else if (err[0] == "false" && err[1] == "\"ID\"")
-                {
-                    message.Text = "請輸入個人資料";
-                }
-                else if (err[0] == "false" && err[1] == "true")
-                {
-                    message.Text = "新增卡片成功";
-                }
-                else if (err[0] == "false" && err[1] == "\"UID\"")
-                {
-                    message.Text = "此卡已存在";
+                    message.Text = "卡片加入成功";
                 }
             }
             catch (Exception ex)
@@ -125,17 +100,42 @@ namespace NFC_reader
                 add_butten_Click(sender, e);
             }
         }
-        public void userlog(string msg)
+        public async Task showdata(string UID)
         {
-            if(msg != "")
+            try
             {
-                message.Text = "讀取卡片成功";
+                if (UID != "")
+                {
+                    UserData userdata = await httpclientusercard.Get(UID);
+                    if (userdata == null)
+                    {
+                        switch (httpclientusercard.err.Replace("\"",""))
+                        {
+                            case "UID":
+                                message.Text = "未找到此卡";
+                                break;
+                            case "ID":
+                                message.Text = "未找到此人";
+                                break;
+                            case "freeze":
+                                message.Text = "卡片無法使用，請聯絡管理員";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        message.Text = "成功";
+                    }
+                }
+                else
+                {
+                    message.Text = "未讀取到卡片";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                message.Text = "未讀取到卡片";
+                message.Text = ex.Message;
             }
-            
         }
         public void notcard()
         {
@@ -144,8 +144,6 @@ namespace NFC_reader
 
         private void clean_butten_Click(object sender, RoutedEventArgs e)
         {
-            username.Text = "";
-            usergrade.Text = "";
             userid.Text = "";
             message.Text = "";
         }

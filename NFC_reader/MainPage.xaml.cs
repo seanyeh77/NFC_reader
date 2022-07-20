@@ -29,7 +29,6 @@ namespace NFC_reader
     public sealed partial class MainPage : Page
     {
         public static string page = "selectcard";
-        public static string atr = "";
         public static string UID = "";
         public MainPage()
         {
@@ -118,7 +117,7 @@ namespace NFC_reader
                     return;
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 if (!this.Dispatcher.HasThreadAccess)
                 {
@@ -151,14 +150,39 @@ namespace NFC_reader
                         ScrollViewer.Navigate(typeof(addcard));
                         page = "addcard";
                         break;
-                    case "deletecard":
-                        ScrollViewer.Navigate(typeof(deletecard));
-                        page = "deletecard";
+                    case "adduserdata":
+                        ScrollViewer.Navigate(typeof(adduserdata));
+                        page = "adduserdata";
+                        break;
+                    
+                    case "checktuserdata":
+                        ScrollViewer.Navigate(typeof(checktuserdata));
+                        page = "checktuserdata";
                         break;
                     case "checkcard":
                         ScrollViewer.Navigate(typeof(checkcard));
                         page = "checkcard";
                         break;
+                    case "deletecard":
+                        ScrollViewer.Navigate(typeof(deletecard));
+                        page = "deletecard";
+                        break;
+                    case "deleteuaserdata":
+                        ScrollViewer.Navigate(typeof(deleteuaserdata));
+                        page = "deleteuaserdata";
+                        break;
+                    case "updateuserdata":
+                        ScrollViewer.Navigate(typeof(updateuserdata));
+                        page = "updateuserdata";
+                        break;
+                    //case "freezeuserdata":
+                    //    ScrollViewer.Navigate(typeof(freezeuserdata));
+                    //    page = "freezeuserdata";
+                    //    break;
+                    //case "disfreezeuserdata":
+                    //    ScrollViewer.Navigate(typeof(disfreezeuserdata));
+                    //    page = "freezeuserdata";
+                    //    break;
                 }
             }
         }

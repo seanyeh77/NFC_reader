@@ -12,7 +12,8 @@
         <TextBlock x:Name="ID"  HorizontalAlignment="Left" Margin="213,100,0,0" TextWrapping="Wrap" FontSize="50" Text="學號" VerticalAlignment="Top" RenderTransformOrigin="0.495,-0.43"/>
         <TextBlock x:Name="name"  HorizontalAlignment="Left" Margin="213,150,0,0" TextWrapping="Wrap" FontSize="50" Text="班級座號" VerticalAlignment="Top" RenderTransformOrigin="0.495,-0.43"/>
         <TextBlock x:Name="time" HorizontalAlignment="Left" Margin="213,200,0,0" TextWrapping="Wrap"  FontSize="50" Text="時間" VerticalAlignment="Top" />
-        <TextBlock x:Name="state" HorizontalAlignment="Left" Margin="213,400,0,0" TextWrapping="Wrap" FontSize="50" Text="" VerticalAlignment="Top"/>
+        <TextBlock x:Name="state" HorizontalAlignment="Left" Margin="213,250,0,0" TextWrapping="Wrap"  FontSize="50" Text="狀態" VerticalAlignment="Top" />
+        <TextBlock x:Name="message" HorizontalAlignment="Left" Margin="213,400,0,0" TextWrapping="Wrap" FontSize="50" Text="" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

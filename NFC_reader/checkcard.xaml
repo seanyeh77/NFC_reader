@@ -9,12 +9,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock  x:Name="ID" HorizontalAlignment="Left" FontSize="50" Margin="528,260,0,0" TextWrapping="Wrap" Text="請刷卡" VerticalAlignment="Top"/>
         <TextBlock FontSize="50"  HorizontalAlignment="Left" Margin="412,260,0,0" TextWrapping="Wrap" Text="學號:" VerticalAlignment="Top"/>
-        <TextBlock  x:Name="grade" HorizontalAlignment="Left" FontSize="50" Margin="528,400,0,0" TextWrapping="Wrap" Text="請刷卡" VerticalAlignment="Top"/>
+        <TextBlock  x:Name="ID" HorizontalAlignment="Left" FontSize="50" Margin="528,260,0,0" TextWrapping="Wrap" Text="請刷卡" VerticalAlignment="Top"/>
         <TextBlock FontSize="50"  HorizontalAlignment="Left" Margin="412,330,0,0" TextWrapping="Wrap" Text="姓名:" VerticalAlignment="Top"/>
         <TextBlock x:Name="name" FontSize="50"  HorizontalAlignment="Left" Margin="528,330,0,0" TextWrapping="Wrap" Text="請刷卡" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="50" Margin="412,400,0,0" TextWrapping="Wrap" Text="年級:" VerticalAlignment="Top"/>
-        <TextBlock x:Name="message" HorizontalAlignment="Left" Margin="423,514,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="50" Margin="312,400,0,0" TextWrapping="Wrap" Text="班級座號:" VerticalAlignment="Top"/>
+        <TextBlock  x:Name="grade" HorizontalAlignment="Left" FontSize="50" Margin="528,400,0,0" TextWrapping="Wrap" Text="請刷卡" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="50" Margin="412,470,0,0" TextWrapping="Wrap" Text="狀態:" VerticalAlignment="Top"/>
+        <TextBlock  x:Name="state" HorizontalAlignment="Left" FontSize="50" Margin="528,470,0,0" TextWrapping="Wrap" Text="請刷卡" VerticalAlignment="Top"/>
+        <TextBlock x:Name="message" HorizontalAlignment="Left" FontSize="35" Margin="423,540,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
     </Grid>
 </Page>

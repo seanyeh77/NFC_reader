@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="NFC_reader.deleteuaserdata"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NFC_reader"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock FontSize="50"  HorizontalAlignment="Left" Margin="422,389,0,0" TextWrapping="Wrap" Text="學號:" VerticalAlignment="Top"/>
+        <TextBox x:Name="userid" HorizontalAlignment="Left" Margin="568,388,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="50" Width="302" Height="67" KeyDown="userid_KeyDown"/>
+        <Button Content="刪除" Margin="467,500,0,0" VerticalAlignment="Top" Height="61" Width="141" FontSize="40" Click="Button_Click"/>
+        <Button Content="清除" Margin="649,500,0,0" VerticalAlignment="Top" Height="61" Width="141" FontSize="40" Click="Button_Click_1"/>
+        <TextBlock x:Name="message" FontSize="35"  HorizontalAlignment="Left" Margin="390,595,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+    </Grid>
+</Page>
