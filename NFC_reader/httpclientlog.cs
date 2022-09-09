@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
-using Microsoft.Net.Http.Headers;
 
 namespace NFC_reader
 {
     public class httpclientlog
     {
-        //public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://localhost:7021/") };
-        public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://userdatawebapi20220502202651.azurewebsites.net/") };
+        public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://localhost:7021/") };
+        //public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://userdatawebapi20220829195800.azurewebsites.net/") };
         public static List<UserLog> result = new List<UserLog>();
         public static async Task<List<UserLog>> Get()
         {

@@ -33,12 +33,11 @@ namespace NFC_reader
             {
                 if (userid.Text != "")
                 {
-                    UserData userData = await httpclientdata.Get(Convert.ToInt32(userid.Text));
+                    UserData userData = await httpclientdata.Get(userid.Text);
                     if (userData != null)
                     {
-                        userclass.Text = userData.grade.ToString();
-                        username.Text = userData.Name;
-                        cardcount.Text = await httpclientusercard.count(Convert.ToInt32(userid.Text));
+                        username.Text = userData.ChineseName;
+                        cardcount.Text = await httpclientusercard.count(userid.Text);
                         userstate.Text = userData.state?"在":"不在";
                         message.Text = "查詢資料成功";
                     }

@@ -150,15 +150,6 @@ namespace NFC_reader
                         ScrollViewer.Navigate(typeof(addcard));
                         page = "addcard";
                         break;
-                    case "adduserdata":
-                        ScrollViewer.Navigate(typeof(adduserdata));
-                        page = "adduserdata";
-                        break;
-                    
-                    case "checktuserdata":
-                        ScrollViewer.Navigate(typeof(checktuserdata));
-                        page = "checktuserdata";
-                        break;
                     case "checkcard":
                         ScrollViewer.Navigate(typeof(checkcard));
                         page = "checkcard";
@@ -167,22 +158,32 @@ namespace NFC_reader
                         ScrollViewer.Navigate(typeof(deletecard));
                         page = "deletecard";
                         break;
-                    case "deleteuaserdata":
-                        ScrollViewer.Navigate(typeof(deleteuaserdata));
-                        page = "deleteuaserdata";
-                        break;
-                    case "updateuserdata":
-                        ScrollViewer.Navigate(typeof(updateuserdata));
-                        page = "updateuserdata";
-                        break;
-                    //case "freezeuserdata":
-                    //    ScrollViewer.Navigate(typeof(freezeuserdata));
-                    //    page = "freezeuserdata";
-                    //    break;
-                    //case "disfreezeuserdata":
-                    //    ScrollViewer.Navigate(typeof(disfreezeuserdata));
-                    //    page = "freezeuserdata";
-                    //    break;
+                        //case "adduserdata":
+                        //    ScrollViewer.Navigate(typeof(adduserdata));
+                        //    page = "adduserdata";
+                        //    break;
+
+                        //case "checktuserdata":
+                        //    ScrollViewer.Navigate(typeof(checktuserdata));
+                        //    page = "checktuserdata";
+                        //    break;
+
+                        //case "deleteuaserdata":
+                        //    ScrollViewer.Navigate(typeof(deleteuaserdata));
+                        //    page = "deleteuaserdata";
+                        //    break;
+                        //case "updateuserdata":
+                        //    ScrollViewer.Navigate(typeof(updateuserdata));
+                        //    page = "updateuserdata";
+                        //    break;
+                        //case "freezeuserdata":
+                        //    ScrollViewer.Navigate(typeof(freezeuserdata));
+                        //    page = "freezeuserdata";
+                        //    break;
+                        //case "disfreezeuserdata":
+                        //    ScrollViewer.Navigate(typeof(disfreezeuserdata));
+                        //    page = "freezeuserdata";
+                        //    break;
                 }
             }
         }

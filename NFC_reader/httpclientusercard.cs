@@ -12,8 +12,8 @@ namespace NFC_reader
     public class httpclientusercard
     {
         public static string err = "";
-        //public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://localhost:7021/") };
-        public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://userdatawebapi20220502202651.azurewebsites.net/") };
+        public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://localhost:7021/") };
+        //public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://userdatawebapi20220829195800.azurewebsites.net/") };
         public static UserData result = new UserData();
         public static async Task<UserData> Get(string UID)
         {
@@ -32,7 +32,7 @@ namespace NFC_reader
                 return null;
             }
         }
-        public static async Task<string> count(int ID)
+        public static async Task<string> count(string ID)
         {
             try
             {

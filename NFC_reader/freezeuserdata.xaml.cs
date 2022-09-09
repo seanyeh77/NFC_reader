@@ -34,7 +34,7 @@ namespace NFC_reader
                 message.Text = "處理中";
                 if (userid.Text != "")
                 {
-                    string err = await httpclientdata.freeze(Convert.ToInt32(userid.Text));
+                    string err = await httpclientdata.freeze(userid.Text);
                     switch (err.Replace("\"",""))
                     {
                         case "scuess":

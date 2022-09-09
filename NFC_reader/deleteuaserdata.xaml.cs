@@ -34,7 +34,7 @@ namespace NFC_reader
                 message.Text = "處理中";
                 if (userid.Text != "")
                 {
-                    string err = await httpclientdata.delete(Convert.ToInt32(userid.Text));
+                    string err = await httpclientdata.delete(userid.Text);
                     if (err == "scuess")
                     {
                         message.Text = "資料刪除成功";

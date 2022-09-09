@@ -10,13 +10,9 @@
     <NavigationView x:Name="MainPage1" Loading="MainPage1_Loading" SelectionChanged="MainPage1_SelectionChanged">
         <NavigationView.MenuItems>
             <NavigationViewItem Icon="SelectAll" Content="讀取卡片" Tag="selectcard"/>
-            <NavigationViewItem Icon="Add" Content="新增資料" Tag="adduserdata"/>
             <NavigationViewItem Icon="Add" Content="新增卡片" Tag="addcard"/>
-            <NavigationViewItem Icon="SelectAll" Content="查詢個人資料" Tag="checktuserdata"/>
             <NavigationViewItem Icon="SelectAll" Content="查詢卡片" Tag="checkcard"/>
-            <NavigationViewItem Icon="Delete" Content="刪除個人資料" Tag="deleteuaserdata"/>
             <NavigationViewItem Icon="Delete" Content="刪除卡片" Tag="deletecard"/>
-            <NavigationViewItem Icon="PostUpdate" Content="修改個人資料" Tag="updateuserdata"/>
             <!--<NavigationViewItem Icon="Manage" Content="凍結個人資料" Tag="freezeuserdata"/>
             <NavigationViewItem Icon="DisableUpdates" Content="解除凍結個人資料" Tag="disfreezeuserdata"/>-->
         </NavigationView.MenuItems>

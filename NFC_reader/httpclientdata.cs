@@ -21,8 +21,8 @@ namespace NFC_reader
         }
 
         public static string err = "";
-        //public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://localhost:7021/") };
-        public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://userdatawebapi20220502202651.azurewebsites.net/") };
+        public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://localhost:7021/") };
+        //public static HttpClient client = new HttpClient() { BaseAddress = new Uri("https://userdatawebapi20220829195800.azurewebsites.net/") };
         public static List<UserData> result = new List<UserData>();
         public static UserData userdata = new UserData();
         
@@ -42,7 +42,7 @@ namespace NFC_reader
                 return result;
             }
         }
-        public static async Task<UserData> Get(int ID)
+        public static async Task<UserData> Get(string ID)
         {
             HttpResponseMessage response = new HttpResponseMessage();
             try
@@ -77,7 +77,7 @@ namespace NFC_reader
                 return "scuess";
             }
         }
-        public static async Task<string> delete(int ID)
+        public static async Task<string> delete(string ID)
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -111,7 +111,7 @@ namespace NFC_reader
                 return "scuess";
             }
         }
-        public static async Task<string> freeze(int ID)
+        public static async Task<string> freeze(string ID)
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -126,7 +126,7 @@ namespace NFC_reader
                 return "scuess";
             }
         }
-        public static async Task<string> disfreeze(int ID)
+        public static async Task<string> disfreeze(string ID)
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(

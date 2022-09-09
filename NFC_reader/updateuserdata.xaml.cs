@@ -35,9 +35,8 @@ namespace NFC_reader
                 {
                     UserData userData = new UserData()
                     {
-                        ID = Convert.ToInt32(userid.Text),
-                        Name = username.Text == "" ? "null" : username.Text,
-                        grade = userclass.Text == "" ? 500:Convert.ToInt32(userclass.Text)
+                        ID = userid.Text,
+                        ChineseName = username.Text == "" ? "null" : username.Text,
                     };
                     String err = await httpclientdata.updata(userData);
                     switch (err.Replace("\"",""))

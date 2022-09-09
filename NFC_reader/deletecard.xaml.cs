@@ -49,7 +49,7 @@ namespace NFC_reader
                     }
                     else
                     {
-                        deluserID.Text = userdata.ID.ToString("D6");
+                        deluserID.Text = userdata.ID;
                         message.Text = "查詢成功";
                     }
                     

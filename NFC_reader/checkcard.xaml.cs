@@ -57,9 +57,8 @@ namespace NFC_reader
                     }
                     else
                     {
-                        ID.Text = userdata.ID.ToString("D6");
-                        name.Text = userdata.Name;
-                        grade.Text = userdata.grade.ToString();
+                        ID.Text = userdata.ID;
+                        name.Text = userdata.ChineseName;
                         state.Text = userdata.state.ToString();
                         message.Text = "成功";
                     }

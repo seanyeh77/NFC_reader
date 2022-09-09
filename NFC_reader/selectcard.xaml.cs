@@ -100,8 +100,8 @@ namespace NFC_reader
                             break;
                         default:
                             userdata = await httpclientusercard.Get(UID);
-                            ID.Text = userdata.ID.ToString("D6");
-                            name.Text = userdata.Name;
+                            ID.Text = userdata.ID;
+                            name.Text = userdata.ChineseName;
                             time.Text = userLog.time.ToString();
                             state.Text = userdata.state?"簽到":"簽退";
                             message.Text = "成功";

@@ -53,7 +53,7 @@ namespace NFC_reader
                 userCard = new UserCard
                 {
                     UID = MainPage.UID.ToString(),
-                    ID = Convert.ToInt32(userid.Text)
+                    ID = userid.Text
                 };
                 String err = await httpclientusercard.Post(userCard);
                 if (err == "\"UID\"")
